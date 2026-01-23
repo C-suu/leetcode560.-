@@ -135,8 +135,7 @@ def subarraySum(nums, k):                     # 定义函数，输入是数组 n
         need = prefix_sum - k                 # 计算“需要的历史前缀和”
         if need in prefix_count:              # 如果这个前缀和以前出现过
             count += prefix_count[need]       # 累加出现次数，等于新增子数组数量
-        
-                                                # 更新当前前缀和出现次数
+            prefix_count[prefix_sum] = prefix_count.get(prefix_sum, 0) + 1         # 更新当前前缀和出现次数
 
     return count                              # 返回最终统计结果
 ```
